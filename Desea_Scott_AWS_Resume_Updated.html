@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desea Scott | AWS Certified Solutions Architect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Desea Scott - AWS Certified Solutions Architect</h1>
+        <p>Welcome to my resume site!</p>
+    </header>
+
+    <section>
+        <h2>Visitor Counter</h2>
+        <p>You are visitor number: <span id="visit-count">...</span></p>
+    </section>
+
+    <section>
+        <h2>About Me</h2>
+        <p>I am an AWS Certified Solutions Architect with a passion for cloud technology and security. This resume demonstrates my skills and projects in the cloud computing domain.</p>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <ul>
+            <li>Cloud Infrastructure Setup with AWS</li>
+            <li>Serverless Architecture Design using Lambda and DynamoDB</li>
+            <li>API Gateway and Lambda Integration for Visitor Counter</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Contact me at <a href="mailto:deseascott@gmail.com">deseascott@gmail.com</a></p>
+    </footer>
+
+    <script>
+        fetch("https://7dzvnx1xhb.execute-api.us-east-2.amazonaws.com/counter")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("visit-count").innerText = data.visits;
+            })
+            .catch(error => {
+                console.error("Error fetching visit count:", error);
+            });
+    </script>
+</body>
+
+</html>
